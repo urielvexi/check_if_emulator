@@ -1,0 +1,22 @@
+PODS:
+  - check_if_emulator (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - check_if_emulator (from `.symlinks/plugins/check_if_emulator/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  check_if_emulator:
+    :path: ".symlinks/plugins/check_if_emulator/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  check_if_emulator: 2e1c16add8372642310f3b0c839a14d7932ead11
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.11.2
