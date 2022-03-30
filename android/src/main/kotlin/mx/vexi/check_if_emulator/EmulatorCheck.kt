@@ -1,6 +1,9 @@
 package mx.vexi.check_if_emulator
 
 import android.os.Build
+import com.scottyab.rootbeer.RootBeer
+import android.content.Context
+import android.provider.Settings
 
 class EmulatorCheck {
     companion object {
@@ -14,5 +17,24 @@ class EmulatorCheck {
                 || Build.DEVICE.startsWith("emulator")
                 || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
                 || "google_sdk" == Build.PRODUCT
+
+        fun isJailBroken(context:Context) : Boolean {
+            val rootBeer = RootBeer(context)
+            return rootBeer.isRooted()
+        }
+
+        fun isDevMode(context:Context) : Boolean {
+            return when {
+                Integer.valueOf(android.os.Build.VERSION.SDK) == 16 -> {
+                    Settings.Secure.getInt(context.contentResolver,
+                            Settings.Secure.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0
+                }
+                Integer.valueOf(android.os.Build.VERSION.SDK) >= 17 -> {
+                    Settings.Secure.getInt(context.contentResolver,
+                            Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0
+                }
+                else -> false
+            }
+        }
     }
 }

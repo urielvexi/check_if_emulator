@@ -17,6 +17,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isPlatformRealDevice = true;
+  String _esDeveloper = "nada";
+  String _esRoot = "nada";
 
   @override
   void initState() {
@@ -30,8 +32,9 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await CheckIfEmulator.isRealDevice;
+      platformVersion = await CheckIfEmulator.isRealDevice;
+      _esDeveloper = "${await CheckIfEmulator.isDeveloperMode}";
+      _esRoot = "${await CheckIfEmulator.isJailBroken}";
     } on PlatformException {
       print("Oh no, un error");
       platformVersion = true;
@@ -55,7 +58,15 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on real device: $_isPlatformRealDevice\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('Running on real device: $_isPlatformRealDevice\n'),
+              Text('Running on dev mode: $_esDeveloper\n'),
+              Text('Running on root device: $_esRoot\n'),
+            ],
+          ),
         ),
       ),
     );
