@@ -1,10 +1,10 @@
 name: check_if_emulator
 description: checks if is real device, root or dev mode.
-version: 0.0.2
+version: 0.0.3
 homepage:
 
 environment:
-  sdk: ">=2.15.1 <3.0.0"
+  sdk: ">=2.16.2 <3.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
