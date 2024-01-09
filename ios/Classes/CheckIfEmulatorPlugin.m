@@ -23,11 +23,22 @@
 }
 
 - (BOOL)isJailBroken{
+    /*if([self isOnMac]) {
+        return false;
+    }*/
     return [DTTJailbreakDetection isJailbroken];
 }
 
 - (BOOL)isDevMode{
     return false;
+}
+
+- (BOOL)isOnMac{
+    BOOL isiOSAppOnMac = false;
+    if (@available(iOS 14.0, *)) {
+        isiOSAppOnMac = [NSProcessInfo processInfo].isiOSAppOnMac;
+    }
+    return isiOSAppOnMac;
 }
 
 - (BOOL) isRealDevice{
