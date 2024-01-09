@@ -1,4 +1,4 @@
-package mx.vexi.check_if_emulator
+package com.example.check_if_emulator
 
 import androidx.annotation.NonNull
 import android.content.Context

@@ -1,3 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="mx.vexi.check_if_emulator">
+  package="com.example.check_if_emulator">
 </manifest>

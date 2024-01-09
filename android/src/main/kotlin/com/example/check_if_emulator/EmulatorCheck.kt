@@ -1,4 +1,4 @@
-package mx.vexi.check_if_emulator
+package com.example.check_if_emulator
 
 import android.os.Build
 import com.scottyab.rootbeer.RootBeer
